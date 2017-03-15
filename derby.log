@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Mar 14 19:54:06 EET 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015a-cdf4-a377-0000051bc538 
+on database directory memory:/Users/aleksandrsmaskalenko/Downloads/songlib/testdb with class loader sun.misc.Launcher$AppClassLoader@7ba4f24f 
+Loaded from file:/Users/aleksandrsmaskalenko/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=/Users/aleksandrsmaskalenko/Downloads/songlib
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.12.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
