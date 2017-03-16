@@ -50,27 +50,51 @@ section{
 
 
 /* follow me template */
-.made-with-love {
+.add  {
   margin-top: 40px;
   padding: 10px;
   clear: left;
-  text-align: center;
+  text-align: right;
   font-size: 10px;
   font-family: arial;
   color: #fff;
 }
-.made-with-love i {
+.add  i {
   font-style: normal;
   color: #F50057;
   font-size: 14px;
   position: relative;
   top: 2px;
 }
-.made-with-love a {
+.add  a {
   color: #fff;
   text-decoration: none;
 }
-.made-with-love a:hover {
+.add  a:hover {
+  text-decoration: underline;
+}
+
+.add  {
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: right;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}
+.add  i {
+  font-style: normal;
+  color: #F50057;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.add a {
+  color: #fff;
+  text-decoration: none;
+}
+.add  a:hover {
   text-decoration: underline;
 }
 

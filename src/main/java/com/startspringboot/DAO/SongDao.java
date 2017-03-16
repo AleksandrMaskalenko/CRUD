@@ -6,8 +6,7 @@ import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-public interface SongDao extends JpaRepository<Song, String> {
-    public Song getSongById(int id);
-    public Song deleteSongById(int id);
+public interface SongDao extends JpaRepository<Song, Integer> {
+    Song getSongById(int id);
 
 }

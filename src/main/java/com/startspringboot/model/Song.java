@@ -7,7 +7,7 @@ import java.util.Date;
 public class Song {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "song_name")
@@ -72,14 +72,4 @@ public class Song {
         this.date = date;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Song{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", author='" + author + '\'' +
-//                ", duration='" + duration + '\'' +
-//                ", date=" + date +
-//                '}';
-//    }
 }

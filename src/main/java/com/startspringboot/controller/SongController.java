@@ -4,6 +4,7 @@ import com.startspringboot.model.Song;
 import com.startspringboot.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,12 @@ public class SongController {
         return songService.listSong();
     }
 
-    @RequestMapping(value = "/songs/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/song/{id}")
+    public Song getSong(@PathVariable int id) {
+        return songService.getSong(id);
+    }
+
+    @RequestMapping(value = "/song/add", method = RequestMethod.POST)
     public void addSong(@RequestBody Song song) {
         songService.addSong(song);
     }

@@ -4,6 +4,7 @@ import com.startspringboot.DAO.SongDao;
 import com.startspringboot.model.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class SongService {
     }
 
     public void deleteSong(int id) {
-        songDao.deleteSongById(id);
+        songDao.delete(id);
     }
 
     public void updateSong(Song song, int id) {
