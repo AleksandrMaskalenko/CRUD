@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Details</title>
+
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <script src = "../js/angular.js"></script>
+    <script src = "../js/songs.js"></script>
+
+</head>
+<body data-ng-controller="SongsController">
+
+<h1>Song Details</h1>
+
+<div class="tbl-header">
+
+    <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Duration</th>
+
+        </tr>
+        </thead>
+    </table>
+</div>
+<div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+        <tr data-ng-repeat="songR in songsR">
+
+            <td>{{songR.id}}</td>
+            <td>{{songR.name}}</td>
+            <td>{{songR.author}}</td>
+            <td>{{songR.duration}}</td>
+
+
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+<div class="add">
+    <button onclick="window.location.href='song-main-lib.html'" formtarget="_blank">Back</button>
+</div>
+
+</body>
+</html>

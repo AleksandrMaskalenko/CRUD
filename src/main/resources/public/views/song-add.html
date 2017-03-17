@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Add song</title>
+
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+
+    <script src = "../js/angular.js"></script>
+    <script src = "../js/songs.js"></script>
+
+</head>
+<body data-ng-controller = "AddSongController">
+
+<h1>Add song</h1>
+
+</div>
+<div class="tbl-header">
+
+    <table cellpadding="0" cellspacing="0" border="0">
+
+        <tr>
+            <th>Name</th>
+            <th><input type="text" data-ng-model="inputName"/></th>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <th><input type="text" data-ng-model="inputAuthor"/></th>
+        </tr>
+        <tr>
+            <th>Duration</th>
+            <th><input type="text" data-ng-model="inputDuration"/></th>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <th><input type="text" data-ng-model="inputDate"/></th>
+        </tr>
+
+    </table>
+</div>
+
+<div class="add">
+    <button data-ng-click="addSong()">Add song</button>
+</div>
+<div class="add">
+    <button onclick="window.location.href='song-main-lib.html'" formtarget="_blank">Back</button>
+</div>
+
+</body>
+</html>

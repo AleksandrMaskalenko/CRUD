@@ -20,12 +20,12 @@ public class Song {
     private String duration;
 
     @Column(name = "song_date")
-    private Date date;
+    private String date;
 
     public Song() {
     }
 
-    public Song(String name, String author, String duration, Date date) {
+    public Song(String name, String author, String duration, String date) {
         this.name = name;
         this.author = author;
         this.duration = duration;
@@ -64,11 +64,11 @@ public class Song {
         this.duration = duration;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
