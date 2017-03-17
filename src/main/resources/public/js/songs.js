@@ -15,7 +15,7 @@ app.controller("SongsController", function ($scope, $http) {
     };
 
     $scope.songDetails = function (song) {
-        
+
         $http.get('http://localhost:8080/song/' + song.id).then(function (response) {
            $scope.songsR = response.data;
 
