@@ -1,12 +1,30 @@
-var app = angular.module("myApp", []);
+var app = angular.module('myApp', ['ngRoute']);
+
+app.run(function($rootScope) {
+
+});
+
+app.config(['$routeProvider', function ($routeProvider) {
+
+    $routeProvider.when('/', {templateUrl: 'views/welcome-file.html' });
+    $routeProvider.when('/read', {templateUrl: 'views/song-details.html'});
+    $routeProvider.when('/main', {templateUrl: 'views/song-main-lib.html'});
+    $routeProvider.when('/new_song', {templateUrl: 'views/song-add.html'});
+    $routeProvider.when('/edit', {templateUrl: 'views/song-edit.html'});
+
+}]);
 
 
+app.controller("SongsController", function ($scope, $http, $rootScope) {
 
-app.controller("SongsController", function ($scope, $http) {
+    $scope.loadData = function () {
+        $http.get('http://localhost:8080/songs').then(function (response) {
+            $rootScope.songs = response.data;
+        });
 
-    $http.get('http://localhost:8080/songs').then(function(response) {
-        $scope.songs = response.data;
-    });
+    };
+
+    $scope.loadData();
 
     $scope.deleteSong = function (song) {
         var idx = $scope.songs.indexOf(song);
@@ -15,51 +33,62 @@ app.controller("SongsController", function ($scope, $http) {
     };
 
     $scope.songDetails = function (song) {
+        // $http.get('http://localhost:8080/song/' + song.id).then(function (data) {
+        //     $scope.songs = data;
+            $scope.songId = song.id;
+            $scope.songName = song.name;
+            $scope.songAuthor = song.author;
+            $scope.songDuration = song.duration;
+            $scope.songDate = song.date;
 
-        $http.get('http://localhost:8080/song/' + song.id).then(function (response) {
-           $scope.songsR = response.data;
-
-        });
     };
 
-});
+    $rootScope.addSong = function () {
 
+        var songObj = {
+            name: $scope.nameR,
+            author: $scope.authorR,
+            duration: $scope.durationR,
+            date: $scope.dateR
+        };
 
-
-app.controller("AddSongController", function($scope, $http) {
-
-    $scope.songs = ({
-        name: $scope.inputName = '',
-        author: $scope.inputAuthor = '',
-        duration: $scope.inputDuration = '',
-        date: $scope.inputDate = ''
-    });
-
-    $scope.addSong = function () {
-
-    var songObj = {
-        name: $scope.inputName,
-        author: $scope.inputAuthor,
-        duration: $scope.inputDuration,
-        date: $scope.inputDate
-    };
         $http.post('http://localhost:8080/song/add', songObj);
 
     };
 
+    $scope.editSong = function (song) {
+
+        $rootScope.idScope = song.id;
+        $rootScope.nameScope = song.name;
+        $rootScope.authorScope = song.author;
+        $rootScope.durationScope = song.duration;
+        $rootScope.dateScope = song.date;
+    };
+
+
+
 });
 
+app.controller("editSongController", function ($scope, $http, $rootScope) {
+
+        $scope.name = $rootScope.nameScope;
+        $scope.author = $rootScope.authorScope;
+        $scope.duration = $rootScope.durationScope;
+        $scope.date = $rootScope.dateScope;
 
 
-// app.controller("ReadSongsController", function ($scope, $http) {
-//
-//     $scope.songDetails = function (song) {
-//
-//         $http.get('http://localhost:8080/song/' + song.id).success(function (data) {
-//             $scope.songs = data;
-//
-//         });
-//     };
-// });
+    $scope.updateSong = function () {
 
+        var songObjUpd = {
+            id: $scope.id = $rootScope.idScope,
+            name: $scope.name,
+            author: $scope.author,
+            duration: $scope.duration,
+            date: $scope.date
+        };
 
+        $http.post('http://localhost:8080/song/add', songObjUpd);
+
+    };
+
+});

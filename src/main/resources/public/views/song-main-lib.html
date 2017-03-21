@@ -1,52 +1,45 @@
-<!DOCTYPE html>
-<html data-ng-app="myApp">
-<head>
-    <meta charset=utf-8">
 
-    <link href="../css/style.css" type="text/css" rel="stylesheet">
+<div>
 
-    <script src = "../js/angular.js"></script>
-    <script src = "../js/songs.js"></script>
+    <h1>Song List</h1>
+    <div class="add">
+        <button onclick="window.location.href='#!/new_song'">Add new song</button>
+    </div>
+    <div class="tbl-header">
 
-    <title>Library</title>
-</head>
-<body data-ng-controller="SongsController">
-<h1>Song List</h1>
-<div class="add">
-    <button onclick="window.location.href='song-add.html'" formtarget="_blank" >Add new song</button>
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Duration</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody >
+            <tr data-ng-repeat="song in songs">
+
+                <td><a data-ng-href="#!/read" data-ng-click="songDetails(song)" >{{song.name}}</a></td>
+                <td>{{song.author}}</td>
+                <td>{{song.duration}}</td>
+                <td><button data-ng-click="download(song)">download</button></td>
+
+                <td><a data-ng-href="#!/edit" data-ng-click="editSong(song)" ><button>edit</button></a></td>
+
+                <td><button data-ng-click="deleteSong(song)">delete</button></td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="add">
+        <button data-ng-click="loadData()">Update library</button>
+    </div>
 </div>
-<div class="tbl-header">
-
-    <table cellpadding="0" cellspacing="0" border="0">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Duration</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-        </tr>
-        </thead>
-    </table>
-</div>
-<div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-        <tr data-ng-repeat="song in songs">
-
-            <td><a data-ng-click="songDetails(song)" href="song-read.html">{{song.name}}</a></td>
-            <td>{{song.author}}</td>
-            <td>{{song.duration}}</td>
-            <td><button data-ng-click="download(song)">download</button></td>
-            <td><button data-ng-click="editSong(song)">edit</button></td>
-            <td><button data-ng-click="deleteSong(song)">delete</button></td>
-
-        </tr>
-        </tbody>
-
-    </table>
-</div>
-
-</body>
-</html>

@@ -41,10 +41,4 @@ public class SongController {
         songService.updateSong(song, id);
     }
 
-    @RequestMapping("songData/{id}")
-    public String songData(@RequestBody Model model, @PathVariable int id) {
-        model.addAttribute("song", songService.getSong(id));
-
-        return "songData";
-    }
 }
